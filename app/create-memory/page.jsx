@@ -39,17 +39,17 @@ const CreateMemory = () => {
   if (!session?.user) return router.push("/");
 
   return (
-    // <>
-    //   <Nav />
-    //   <Header />
-    <Form
-      type="Create"
-      post={post}
-      setPost={setPost}
-      submitting={submitting}
-      handleSubmit={createMemory}
-    />
-    // </>
+    <>
+      <Nav />
+      <Header />
+      <Form
+        type="Create"
+        post={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={createMemory}
+      />
+    </>
   );
 };
 

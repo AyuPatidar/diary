@@ -48,13 +48,15 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             onClick={handleSubmit}
             className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
           >
-            {type === "Create"
+            {type === "Create" && submitting ? "Creating" : "Create"}
+            {type !== "Create" && submitting ? "Updating" : "Update"}
+            {/* {type === "Create"
               ? submitting
                 ? "Creating"
                 : "Create"
               : submitting
               ? "Updating"
-              : "Update"}
+              : "Update"} */}
           </button>
         </div>
       </form>

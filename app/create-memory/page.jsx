@@ -16,7 +16,7 @@ const CreateMemory = () => {
     date: dateToday,
     content: "",
   });
-  const handleSubmit = async (event) => {
+  const createMemory = async (event) => {
     event.preventDefault();
     setSubmitting(true);
     try {
@@ -47,7 +47,7 @@ const CreateMemory = () => {
         post={post}
         setPost={setPost}
         submitting={submitting}
-        handleSubmit={handleSubmit}
+        handleSubmit={createMemory}
       />
     </>
   );

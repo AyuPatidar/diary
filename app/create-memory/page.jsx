@@ -12,7 +12,7 @@ const CreateMemory = () => {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
-    date: new Date(),
+    date: "",
     content: "",
   });
   const handleSubmit = async (event) => {

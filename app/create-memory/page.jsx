@@ -36,7 +36,7 @@ const CreateMemory = () => {
     }
   };
 
-  if (!session?.user) return router.push("/");
+  // if (!session?.user) return router.push("/");
 
   return (
     <>

@@ -6,12 +6,10 @@ import { useState, useEffect } from "react";
 
 const Header = () => {
   const { data: session } = useSession();
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
   useEffect(() => {
-    window.onresize = () => {
-      const newWidth = window.innerWidth;
-      setWidth(newWidth);
-    };
+    const newWidth = window.innerWidth;
+    setWidth(newWidth);
   }, []);
   return (
     width > 639 && (

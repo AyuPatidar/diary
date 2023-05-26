@@ -17,7 +17,6 @@ const Home = () => {
     };
     setUpProviders();
   }, []);
-  if (session?.user) return router.push(`/profile/${session?.user.id}`);
   return (
     <div className="h-screen flex flex-col justify-between items-center">
       <div className="h-screen flex flex-col justify-center items-center">
@@ -35,7 +34,11 @@ const Home = () => {
               key={provider.name}
               type="button"
               className="m-1 black_btn"
-              onClick={() => signIn(provider.id)}
+              onClick={() =>
+                signIn(provider.id, {
+                  callbackUrl: `/profile/${session?.user.id}`,
+                })
+              }
             >
               Sign In with {provider.name}
             </button>

@@ -11,7 +11,6 @@ const Nav = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [toggleDropDown, setToggleDropDown] = useState(false);
-  // if (!session?.user) return router.push("/");
   return (
     <nav className="flex-between w-full m-1 p-3">
       <div className="flex flex-center">

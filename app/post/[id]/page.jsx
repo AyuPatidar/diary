@@ -33,7 +33,6 @@ const Memory = ({ params }) => {
       console.log(error);
     }
   };
-  if (!session?.user) return router.push("/");
   return (
     <>
       <Nav />

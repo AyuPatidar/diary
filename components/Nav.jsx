@@ -11,11 +11,7 @@ const Nav = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [toggleDropDown, setToggleDropDown] = useState(false);
-  if (!session?.user) return router.push("/");
-  const handleSignOut = () => {
-    setToggleDropDown(false);
-    signOut();
-  };
+  // if (!session?.user) return router.push("/");
   return (
     <nav className="flex-between w-full m-1 p-3">
       <div className="flex flex-center">
@@ -34,7 +30,7 @@ const Nav = () => {
           )}
           <button
             type="button"
-            onClick={handleSignOut}
+            onClick={() => signOut({ callbackUrl: "/" })}
             className="outline_btn"
           >
             Sign Out
@@ -66,7 +62,7 @@ const Nav = () => {
               <button
                 type="button"
                 className="mt-2 black_btn w-full"
-                onClick={handleSignOut}
+                onClick={() => signOut({ callbackUrl: "/" })}
               >
                 Sign Out
               </button>

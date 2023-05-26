@@ -10,9 +10,10 @@ import { useState } from "react";
 const CreateMemory = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  const dateToday = new Date();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
-    date: "",
+    date: dateToday,
     content: "",
   });
   const handleSubmit = async (event) => {

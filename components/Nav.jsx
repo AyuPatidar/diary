@@ -18,7 +18,7 @@ const Nav = () => {
       {/* DESKTOP NAVIGATION */}
       <div className="sm:flex hidden">
         <div className="flex gap-3 md:gap-5">
-          {pathname === `/profile/${session?.user.id}` && (
+          {pathname === `/profile` && (
             <Link
               href="/create-memory"
               className="black_btn"
@@ -48,7 +48,7 @@ const Nav = () => {
           />
           {toggleDropDown && (
             <div className="dropdown">
-              {pathname === `/profile/${session?.user.id}` && (
+              {pathname === `/profile` && (
                 <Link
                   href="/create-memory"
                   className="dropdown_link"

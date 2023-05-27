@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import { getProviders, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   const [providers, setProviders] = useState([]);
   useEffect(() => {
     const setUpProviders = async () => {
@@ -15,6 +17,9 @@ const Home = () => {
     };
     setUpProviders();
   }, []);
+  useEffect(() => {
+    if (session?.user.id) return router.push("/profile");
+  }, [session?.user.id]);
   return (
     <div className="h-screen flex flex-col justify-between items-center">
       <div className="h-screen flex flex-col justify-center items-center">
@@ -32,11 +37,9 @@ const Home = () => {
               key={provider.name}
               type="button"
               className="m-1 black_btn"
-              onClick={() =>
-                signIn(provider.id, {
-                  callbackUrl: `/profile/${session?.user.id}`,
-                })
-              }
+              onClick={() => {
+                signIn(provider.id);
+              }}
             >
               Sign In with {provider.name}
             </button>

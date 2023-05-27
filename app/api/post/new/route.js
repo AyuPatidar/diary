@@ -1,10 +1,10 @@
 import Post from "@/models/post";
-import { connectToDB } from "@/utils/database";
+import dbConnect from "@/utils/database";
 
 export const POST = async (req) => {
   const { date, content, userId } = await req.json();
   try {
-    await connectToDB();
+    await dbConnect();
     const newPost = new Post({
       creator: userId,
       date,

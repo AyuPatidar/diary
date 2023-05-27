@@ -27,7 +27,7 @@ const Memory = ({ params }) => {
     event.preventDefault();
     try {
       await fetch(`/api/post/${params.id}`, { method: "DELETE" });
-      return router.push(`profile/${session?.user.id}`);
+      return router.push(`/profile`);
     } catch (error) {
       console.log(error);
     }

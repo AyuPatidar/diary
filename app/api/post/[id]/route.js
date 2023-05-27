@@ -1,9 +1,9 @@
 import Post from "@/models/post";
-import { connectToDB } from "@/utils/database";
+import dbConnect from "@/utils/database";
 
 export const GET = async (req, { params }) => {
   try {
-    await connectToDB();
+    await dbConnect();
     const post = await Post.findById(params.id).populate("creator");
     if (post) return new Response(JSON.stringify(post), { status: 200 });
     else return new Response("Memory not found", { status: 404 });
@@ -15,7 +15,7 @@ export const GET = async (req, { params }) => {
 export const PATCH = async (req, { params }) => {
   const { date, content } = await req.json();
   try {
-    await connectToDB();
+    await dbConnect();
     const existingPost = await Post.findById(params.id);
     if (!existingPost) return new Response("Memory not found", { status: 404 });
     existingPost.date = date;
@@ -29,7 +29,7 @@ export const PATCH = async (req, { params }) => {
 
 export const DELETE = async (req, { params }) => {
   try {
-    await connectToDB();
+    await dbConnect();
     await Post.findByIdAndRemove(params.id);
     return new Response("Post deleted successfully", { status: 200 });
   } catch (error) {

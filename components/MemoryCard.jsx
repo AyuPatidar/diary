@@ -9,17 +9,13 @@ const MemoryCard = ({ memory, handlePostClick, handleEdit, handleDelete }) => {
   const pathname = usePathname();
   return (
     <div
-      className={
-        pathname === `/profile/${session?.user.id}`
-          ? "feed_post_card"
-          : "post_card"
-      }
+      className={pathname === `/profile` ? "feed_post_card" : "post_card"}
       onClick={() => handlePostClick && handlePostClick(memory)}
     >
       <p className="my-4 font-montserrat text-lg text-gray-700">
         {memory.date.slice(0, 10)}
       </p>
-      {pathname === `/profile/${session?.user.id}` ? (
+      {pathname === `/profile` ? (
         <p className="font-montserrat text-base cursor-pointer">
           {memory.content.slice(0, 100)}...
         </p>

@@ -1,9 +1,9 @@
 import Post from "@/models/post";
-import { connectToDB } from "@/utils/database";
+import dbConnect from "@/utils/database.js";
 
 export const GET = async (req, { params }) => {
   try {
-    await connectToDB();
+    await dbConnect();
     const posts = await Post.find({ creator: params.id }).populate("creator");
     return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {

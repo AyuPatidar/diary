@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Nav = () => {
   const { data: session } = useSession();
+  console.log(session);
   const pathname = usePathname();
   const [toggleDropDown, setToggleDropDown] = useState(false);
   return (

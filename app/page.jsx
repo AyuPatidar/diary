@@ -3,12 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { getProviders, signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 
 const Home = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const [providers, setProviders] = useState([]);
   useEffect(() => {
     const setUpProviders = async () => {

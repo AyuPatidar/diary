@@ -1,14 +1,13 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 const Nav = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const pathname = usePathname();
   const [toggleDropDown, setToggleDropDown] = useState(false);
   return (

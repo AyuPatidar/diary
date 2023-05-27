@@ -12,7 +12,6 @@ const Memory = ({ params }) => {
   const { data: session } = useSession();
   const postId = params.id;
   const [post, setPost] = useState({ date: "", content: "" });
-  const [submitting, setSubmitting] = useState(false);
   useEffect(() => {
     const fetchPost = async () => {
       const response = await fetch(`/api/post/${postId}`);

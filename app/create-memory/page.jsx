@@ -28,7 +28,7 @@ const CreateMemory = () => {
           content: post.content,
         }),
       });
-      if (response.ok) return router.push("/");
+      if (response.ok) return router.push(`/profile/${session?.user.id}`);
     } catch (error) {
       console.log(error);
     } finally {

@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 
 const Home = () => {
   const { data: session } = useSession();
-  console.log(session);
   const [providers, setProviders] = useState([]);
   useEffect(() => {
     const setUpProviders = async () => {
